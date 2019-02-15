@@ -32,7 +32,7 @@ class NextViewController: UIViewController {
         dismissBttuon.addTarget(self, action: #selector(viewDismiss), for: .touchUpInside)
         view.addSubview(dismissBttuon)
         
-        codeManager.start("13438380293", codeButton)
+        codeManager.start("134XXXXXXXX", codeButton)
     }
     
     override func didReceiveMemoryWarning() {
