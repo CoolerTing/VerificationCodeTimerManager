@@ -50,7 +50,7 @@ func applicationDidEnterBackground(_ application: UIApplication) {
 ```
 
 ### 枚举
-设置对象inputType
+设置对象codeType
 ```swift
 enum codeType {
         case login      //登录
@@ -59,3 +59,5 @@ enum codeType {
         case forget     //忘记密码
     }
 ```
+
+##详细使用请参看DEMO
