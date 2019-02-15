@@ -9,14 +9,47 @@
 
 可根据需求修改代码。
 ## 使用
-在```viewWillAppear```中调用```swfit func start(_ phone: String?, _ button: UIButton)```
-
-
-## 参数
-* frame：控件的frame
-* space：控件的头尾距父视图的间距
-* margin：每一个输入框的间距
-* count：输入框的个数
+在控制器中创建一个获取验证码按钮并初始化定时器管理
+```swift
+let codeManager: CodeTimerManager = CodeTimerManager.init(type: .login, buttonTitle: "获取验证码")
+```
+在```viewWillAppear```中调用```swfit 
+func start(_ phone: String?, _ button: UIButton)```开启定时器管理
+```swift
+override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        codeManager.start("134XXXXXXXXXX", codeButton)
+    }
+```
+在```viewWillDisapper```中调用```swift
+func finish()```停止并移除定时器
+```swift
+override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        codeManager.finish()
+    }
+```
+在按钮点击事件中启动定时器
+```swift
+@objc func buttonClick() {
+        codeManager.timerStart()
+    }
+```
+在```AppDelegate```中进入前台方法中调用发送进入前台通知方法
+```swift
+func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        CodeTimerManager.postForegroundNoti()
+    }
+```
+在```AppDelegate```中进入后台方法中调用发送进入后台通知方法
+```swift
+func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        CodeTimerManager.postBackgroundNoti()
+    }
+```
 
 ### 枚举
 设置对象inputType
