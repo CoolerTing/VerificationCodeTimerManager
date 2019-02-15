@@ -35,6 +35,12 @@ class CodeTimerManager: NSObject {
         super.init()
         self.type = type
         self.buttonTitle = buttonTitle
+        setObserver()
+    }
+    ///设置观察者
+    private func setObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(fixLeadTime), name: NSNotification.Name(CodeTimerManager.foreNotiName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fixLastTime), name: NSNotification.Name(CodeTimerManager.backNotiName), object: nil)
     }
     ///获取时间
     private func getTime() {
@@ -92,8 +98,6 @@ class CodeTimerManager: NSObject {
             }
             button.setTitle(buttonTitle, for: .normal)
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(fixLeadTime), name: NSNotification.Name(CodeTimerManager.foreNotiName), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(fixLastTime), name: NSNotification.Name(CodeTimerManager.backNotiName), object: nil)
     }
     ///在viewWillDisapper中调用
     func finish() {
