@@ -9,7 +9,7 @@
 
 可根据需求修改代码。
 ## 使用
-
+在```viewWillAppear```中调用```swfit func start(_ phone: String?, _ button: UIButton)```
 
 
 ## 参数
