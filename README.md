@@ -18,7 +18,7 @@ let codeManager: CodeTimerManager = CodeTimerManager.init(type: .login, buttonTi
 override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        codeManager.start("13438380293", codeButton)
+        codeManager.start("134XXXXXXXX", codeButton)
     }
 ```
 在```deinit```中调用```func finish()```停止并移除定时器
