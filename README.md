@@ -15,16 +15,17 @@ let codeManager: CodeTimerManager = CodeTimerManager.init(type: .login, buttonTi
 ```
 在```viewDidLoad```中调用```func start(_ phone: String?, _ button: UIButton)```设置定时器管理
 ```swift
-override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        codeManager.start("134XXXXXXXXXX", codeButton)
+override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        codeManager.start("13438380293", codeButton)
     }
 ```
 在```deinit```中调用```func finish()```停止并移除定时器
 ```swift
-override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+deinit {
         codeManager.finish()
+        print("\(self)已释放")
     }
 ```
 在按钮点击事件中启动定时器
