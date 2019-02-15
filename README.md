@@ -60,4 +60,4 @@ enum codeType {
     }
 ```
 
-##详细使用请参看DEMO
+## 详细使用请参看DEMO
