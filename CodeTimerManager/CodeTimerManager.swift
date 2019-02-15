@@ -168,15 +168,19 @@ class CodeTimerManager: NSObject {
 }
 
 class codeTimer: NSObject {
-    //验证码定时器管理类
+    /*
+     验证码定时器管理类(全局变量)
+     将不同类型验证码分开记录，防止同时发送时，倒计时冲突
+     可滋行根据需求添加
+    */
     private static var _payLastTime: TimeInterval?          //支付验证密码离开时间
     private static var _loginLastTime: TimeInterval?        //登录验证码离开时时间
-    private static var _registLastTime: TimeInterval?        //注册验证码离开时时间
-    private static var _forgetLastTime: TimeInterval?        //忘记验证码离开时时间
+    private static var _registLastTime: TimeInterval?       //注册验证码离开时时间
+    private static var _forgetLastTime: TimeInterval?       //忘记验证码离开时时间
     private static var _payLeadTime: TimeInterval?          //支付验证码剩余时间
     private static var _loginLeadTime: TimeInterval?        //登录验证码剩余时间
-    private static var _registLeadTime: TimeInterval?        //注册验证码剩余时间
-    private static var _forgetLeadTime: TimeInterval?        //忘记验证码剩余时间
+    private static var _registLeadTime: TimeInterval?       //注册验证码剩余时间
+    private static var _forgetLeadTime: TimeInterval?       //忘记验证码剩余时间
     
     static var payLastTime: TimeInterval? {
         return _payLastTime

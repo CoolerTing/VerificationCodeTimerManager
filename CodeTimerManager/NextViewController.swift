@@ -31,21 +31,13 @@ class NextViewController: UIViewController {
         dismissBttuon.frame = CGRect(x: 100, y: 100, width: 200, height: 30)
         dismissBttuon.addTarget(self, action: #selector(viewDismiss), for: .touchUpInside)
         view.addSubview(dismissBttuon)
+        
+        codeManager.start("13438380293", codeButton)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        codeManager.start("13438380293", codeButton)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        codeManager.finish()
     }
     
     @objc func buttonClick() {
@@ -57,6 +49,7 @@ class NextViewController: UIViewController {
     }
 
     deinit {
+        codeManager.finish()
         print("\(self)已释放")
     }
 }
