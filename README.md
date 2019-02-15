@@ -21,8 +21,10 @@
 ### 枚举
 设置对象inputType
 ```swift
-typedef NS_ENUM(NSUInteger, inputType) {
-    inputTypeNormal = 0,//明文显示
-    inputTypeSecurity,//密文显示
-};
+enum codeType {
+        case login      //登录
+        case pay        //支付
+        case regist     //注册
+        case forget     //忘记密码
+    }
 ```
