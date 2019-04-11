@@ -1,7 +1,7 @@
 # VerificationCodeTimerManager
 验证码倒计时管理器
 ## 安装
-将CodeTimerManager文件拖入项目中
+将CodeTimerManager.swift文件拖入项目中
 ## 说明
 项目功能，简单易用。
 
